@@ -61,8 +61,8 @@ layers:
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
   - {t: '9', s: (}
-  - {t: '-', s: _}
-  - {t: '=', s: +}
+  - {t: '0', s: )}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - BT CLR ALL
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
@@ -89,14 +89,14 @@ layers:
   - RGB EFR
   - RGB SPI
   - RGB BRI
-  - RGB BRD
-  - END
+  - {t: '-', s: _}
+  - {t: '=', s: +}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - INS
-  - $$mdi:backspace-reverse-outline$$
+  - RGB BRD
   - {t: '$$mdi:transfer$$', type: trans}
   RIGHT_MOD:
   - {t: '$$mdi:transfer$$', type: trans}
