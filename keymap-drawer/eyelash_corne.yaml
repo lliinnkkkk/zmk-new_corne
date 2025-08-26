@@ -91,7 +91,7 @@ layers:
   - RGB BRI
   - RGB BRD
   - END
-  - trans
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
@@ -140,7 +140,7 @@ layers:
   - '{'
   - '}'
   - '|'
-  - trans
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:keyboard-space$$
