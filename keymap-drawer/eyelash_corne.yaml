@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - PG UP
+  - $$mdi:arrow-up-bold$$
   - Y
   - U
   - I
@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - $$mdi:keyboard-space$$
-  - PG DN
+  - $$mdi:arrow-down-bold$$
   - N
   - M
   - {t: ',', s: <}
