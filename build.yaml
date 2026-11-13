@@ -1,17 +1,33 @@
 ---
+# NOTE: RMK reclaims the flash region reserved for the Nordic SoftDevice, so the
+# stock (SoftDevice-reserving) ZMK build no longer boots after flashing RMK.
+# Every firmware here is built with the `nrf52840-nosd` snippet, which drops the
+# SoftDevice reservation and links the app at 0x1000 (same place RMK uses).
+# Keep using `nrf52840-nosd` for all future builds unless the SoftDevice is
+# restored by re-flashing the bootloader over SWD.
 include:
-#  - board: eyelash_corne_left
-#    shield: nice_view
-#    #snippet: zmk-usb-logging    # Uncomment to log over USB.
+  # Left half (central): plain build (Studio would need a local build to combine
+  # the `studio-rpc-usb-uart` and `nrf52840-nosd` snippets).
+  - board: eyelash_corne_left
+    shield: nice_view
+    snippet: nrf52840-nosd
+    artifact-name: eyelash_corne_left_nosd
+
+  # Right half (peripheral).
   - board: eyelash_corne_right
     shield: nice_view
-    #snippet: zmk-usb-logging
-  - board: eyelash_corne_left
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
-    artifact-name: eyelash_corne_studio_left
+    snippet: nrf52840-nosd
+    artifact-name: eyelash_corne_right_nosd
+
+  # Settings reset must also be built nosd, otherwise it cannot boot to wipe.
   - board: eyelash_corne_left
     shield: settings_reset
-    #snippet: zmk-usb-logging
- 
+    snippet: nrf52840-nosd
+
+  # Uncomment for ZMK Studio (add nrf52840-nosd via a local `west build -S` if
+  # you need it; the cloud workflow accepts only one snippet per entry).
+  # - board: eyelash_corne_left
+  #   shield: nice_view
+  #   snippet: studio-rpc-usb-uart
+  #   cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+  #   artifact-name: eyelash_corne_studio_left
